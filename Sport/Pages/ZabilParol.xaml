@@ -1,0 +1,26 @@
+﻿<Page x:Class="Sport.Pages.ZabilParol"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Sport.Pages"
+        mc:Ignorable="d"
+        
+        Title="ZabilParol" Height="500" Width="500">
+
+    <Grid>
+        <TextBox x:Name="tbemail" HorizontalAlignment="Left" Height="42" Margin="83,179,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="338" />
+        <Label x:Name="lbpochta" Content="Введите почту" HorizontalAlignment="Left" Margin="74,144,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnotpravi" Content="Отправить код" HorizontalAlignment="Left" Margin="170,242,0,0" VerticalAlignment="Top" Click="OtpraviClick"/>
+        <TextBox x:Name="textkod" HorizontalAlignment="Left" Height="42" Margin="83,179,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="338" Visibility="Hidden"/>
+        <Button x:Name="btnsver" Content="Сверить код" HorizontalAlignment="Left" Margin="170,242,0,0" VerticalAlignment="Top" Click="btnsver_Click" Visibility="Hidden"/>
+        <TextBox x:Name="tbnoviparoli" HorizontalAlignment="Left" Height="42" Margin="83,184,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="338" Visibility="Hidden"/>
+        <Label x:Name="lbnowiparo" Content="Введите новый пароль" HorizontalAlignment="Left" Margin="74,144,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
+        <Button x:Name="btparored" Content="Редактировать" HorizontalAlignment="Left" Margin="170,329,0,0" VerticalAlignment="Top" Click="btparored_Click" Visibility="Hidden"/>
+        <TextBox x:Name="tbnoviparoli2" HorizontalAlignment="Left" Height="42" Margin="83,262,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="338" Visibility="Hidden"/>
+        <Label x:Name="lbnowiparo2" Content="Введите пароль еще раз" HorizontalAlignment="Left" Margin="74,231,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
+        <Label x:Name="lbkod" Content="Введите код" HorizontalAlignment="Left" Margin="74,144,0,0" VerticalAlignment="Top" Visibility="Hidden" />
+
+
+    </Grid>
+</Page>

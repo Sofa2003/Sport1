@@ -1,0 +1,764 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище SportModels" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Aboniment">
+          <Key>
+            <PropertyRef Name="KodAboniment" />
+          </Key>
+          <Property Name="KodAboniment" Type="int" Nullable="false" />
+          <Property Name="Client" Type="int" Nullable="false" />
+          <Property Name="DataPokupki" Type="date" />
+          <Property Name="DataOkonhanie" Type="date" />
+          <Property Name="TipAboniment" Type="int" Nullable="false" />
+          <Property Name="Summa" Type="int" />
+          <Property Name="SposobOplati" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DanniePersonal">
+          <Key>
+            <PropertyRef Name="KodPersonal" />
+          </Key>
+          <Property Name="KodPersonal" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ImiPersonal" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="FamiliaPersonala" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="OthestvoPersonala" Type="nvarchar" MaxLength="100" />
+          <Property Name="DataRojdenia" Type="datetime" />
+          <Property Name="NomerTelefona" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DoljnostiPersonal" Type="int" Nullable="false" />
+          <Property Name="StajRaboti" Type="int" />
+          <Property Name="E-mail" Type="varchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="Doljnosti">
+          <Key>
+            <PropertyRef Name="KodDolj" />
+          </Key>
+          <Property Name="KodDolj" Type="int" Nullable="false" />
+          <Property Name="NameDolj" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="InfoZanitia">
+          <Key>
+            <PropertyRef Name="KodZanitia" />
+          </Key>
+          <Property Name="KodZanitia" Type="int" Nullable="false" />
+          <Property Name="Zanitia" Type="int" Nullable="false" />
+          <Property Name="VremiZanitia" Type="time" Precision="7" Nullable="false" />
+          <Property Name="Trener" Type="int" Nullable="false" />
+          <Property Name="DataZanitia" Type="date" />
+        </EntityType>
+        <EntityType Name="Klient">
+          <Key>
+            <PropertyRef Name="KodKlienta" />
+          </Key>
+          <Property Name="KodKlienta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Aboniment" Type="int" Nullable="false" />
+          <Property Name="ImiKlient" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="FamiliaKlient" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="NomerTelefona" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="nvarchar(max)" />
+          <Property Name="DataRojdeniaKlient" Type="datetime" />
+          <Property Name="SeriaPasport" Type="char" MaxLength="4" Nullable="false" />
+          <Property Name="NomerPasport" Type="char" MaxLength="6" />
+        </EntityType>
+        <EntityType Name="Kolichistvo">
+          <Key>
+            <PropertyRef Name="KodKolich" />
+          </Key>
+          <Property Name="KodKolich" Type="int" Nullable="false" />
+          <Property Name="KodZanitia" Type="int" Nullable="false" />
+          <Property Name="KodClienta" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Oplata">
+          <Key>
+            <PropertyRef Name="KodOplati" />
+          </Key>
+          <Property Name="KodOplati" Type="int" Nullable="false" />
+          <Property Name="Client" Type="int" Nullable="false" />
+          <Property Name="Aboniment" Type="int" Nullable="false" />
+          <Property Name="DataOplati" Type="date" />
+          <Property Name="Summa" Type="int" />
+          <Property Name="SposobOplati" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Polizovateli">
+          <Key>
+            <PropertyRef Name="KodPolizovatieli" />
+          </Key>
+          <Property Name="KodPolizovatieli" Type="int" Nullable="false" />
+          <Property Name="LoginPolizovateli" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ParoliPolizovateli" Type="nvarchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SposobOplati">
+          <Key>
+            <PropertyRef Name="KodSposOplati" />
+          </Key>
+          <Property Name="KodSposOplati" Type="int" Nullable="false" />
+          <Property Name="Sposob" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TipAbonimenta">
+          <Key>
+            <PropertyRef Name="KodAboniment" />
+          </Key>
+          <Property Name="KodAboniment" Type="int" Nullable="false" />
+          <Property Name="NameTip" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tipzanitia">
+          <Key>
+            <PropertyRef Name="Kodnipzanitia" />
+          </Key>
+          <Property Name="Kodnipzanitia" Type="int" Nullable="false" />
+          <Property Name="Nametip" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Zanitie">
+          <Key>
+            <PropertyRef Name="KodZanitia" />
+          </Key>
+          <Property Name="KodZanitia" Type="int" Nullable="false" />
+          <Property Name="NazvanieZanitia" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="OpisanieZanitia" Type="nvarchar(max)" />
+          <Property Name="TipZanitia" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Aboniment_TipAbonimenta">
+          <End Role="TipAbonimenta" Type="Self.TipAbonimenta" Multiplicity="1" />
+          <End Role="Aboniment" Type="Self.Aboniment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipAbonimenta">
+              <PropertyRef Name="KodAboniment" />
+            </Principal>
+            <Dependent Role="Aboniment">
+              <PropertyRef Name="TipAboniment" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DanniePersonal_Doljnosti">
+          <End Role="Doljnosti" Type="Self.Doljnosti" Multiplicity="1" />
+          <End Role="DanniePersonal" Type="Self.DanniePersonal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Doljnosti">
+              <PropertyRef Name="KodDolj" />
+            </Principal>
+            <Dependent Role="DanniePersonal">
+              <PropertyRef Name="DoljnostiPersonal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InfoZanitia_DanniePersonal">
+          <End Role="DanniePersonal" Type="Self.DanniePersonal" Multiplicity="1" />
+          <End Role="InfoZanitia" Type="Self.InfoZanitia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DanniePersonal">
+              <PropertyRef Name="KodPersonal" />
+            </Principal>
+            <Dependent Role="InfoZanitia">
+              <PropertyRef Name="Trener" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InfoZanitia_Zanitie">
+          <End Role="Zanitie" Type="Self.Zanitie" Multiplicity="1" />
+          <End Role="InfoZanitia" Type="Self.InfoZanitia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zanitie">
+              <PropertyRef Name="KodZanitia" />
+            </Principal>
+            <Dependent Role="InfoZanitia">
+              <PropertyRef Name="Zanitia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Kolichistvo_Klient">
+          <End Role="Klient" Type="Self.Klient" Multiplicity="1" />
+          <End Role="Kolichistvo" Type="Self.Kolichistvo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Klient">
+              <PropertyRef Name="KodKlienta" />
+            </Principal>
+            <Dependent Role="Kolichistvo">
+              <PropertyRef Name="KodClienta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Kolichistvo_Zanitie">
+          <End Role="Zanitie" Type="Self.Zanitie" Multiplicity="1" />
+          <End Role="Kolichistvo" Type="Self.Kolichistvo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zanitie">
+              <PropertyRef Name="KodZanitia" />
+            </Principal>
+            <Dependent Role="Kolichistvo">
+              <PropertyRef Name="KodZanitia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Oplata_Aboniment">
+          <End Role="Aboniment" Type="Self.Aboniment" Multiplicity="1" />
+          <End Role="Oplata" Type="Self.Oplata" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Aboniment">
+              <PropertyRef Name="KodAboniment" />
+            </Principal>
+            <Dependent Role="Oplata">
+              <PropertyRef Name="Aboniment" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Oplata_SposobOplati">
+          <End Role="SposobOplati" Type="Self.SposobOplati" Multiplicity="1" />
+          <End Role="Oplata" Type="Self.Oplata" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SposobOplati">
+              <PropertyRef Name="KodSposOplati" />
+            </Principal>
+            <Dependent Role="Oplata">
+              <PropertyRef Name="SposobOplati" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Polizovateli_DanniePersonal1">
+          <End Role="DanniePersonal" Type="Self.DanniePersonal" Multiplicity="1" />
+          <End Role="Polizovateli" Type="Self.Polizovateli" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="DanniePersonal">
+              <PropertyRef Name="KodPersonal" />
+            </Principal>
+            <Dependent Role="Polizovateli">
+              <PropertyRef Name="KodPolizovatieli" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zanitie_Tipzanitia">
+          <End Role="Tipzanitia" Type="Self.Tipzanitia" Multiplicity="1" />
+          <End Role="Zanitie" Type="Self.Zanitie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tipzanitia">
+              <PropertyRef Name="Kodnipzanitia" />
+            </Principal>
+            <Dependent Role="Zanitie">
+              <PropertyRef Name="TipZanitia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище SportModelsContainer">
+          <EntitySet Name="Aboniment" EntityType="Self.Aboniment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DanniePersonal" EntityType="Self.DanniePersonal" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Doljnosti" EntityType="Self.Doljnosti" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InfoZanitia" EntityType="Self.InfoZanitia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Klient" EntityType="Self.Klient" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Kolichistvo" EntityType="Self.Kolichistvo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Oplata" EntityType="Self.Oplata" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Polizovateli" EntityType="Self.Polizovateli" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SposobOplati" EntityType="Self.SposobOplati" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipAbonimenta" EntityType="Self.TipAbonimenta" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tipzanitia" EntityType="Self.Tipzanitia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Zanitie" EntityType="Self.Zanitie" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Aboniment_TipAbonimenta" Association="Self.FK_Aboniment_TipAbonimenta">
+            <End Role="TipAbonimenta" EntitySet="TipAbonimenta" />
+            <End Role="Aboniment" EntitySet="Aboniment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DanniePersonal_Doljnosti" Association="Self.FK_DanniePersonal_Doljnosti">
+            <End Role="Doljnosti" EntitySet="Doljnosti" />
+            <End Role="DanniePersonal" EntitySet="DanniePersonal" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InfoZanitia_DanniePersonal" Association="Self.FK_InfoZanitia_DanniePersonal">
+            <End Role="DanniePersonal" EntitySet="DanniePersonal" />
+            <End Role="InfoZanitia" EntitySet="InfoZanitia" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InfoZanitia_Zanitie" Association="Self.FK_InfoZanitia_Zanitie">
+            <End Role="Zanitie" EntitySet="Zanitie" />
+            <End Role="InfoZanitia" EntitySet="InfoZanitia" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Kolichistvo_Klient" Association="Self.FK_Kolichistvo_Klient">
+            <End Role="Klient" EntitySet="Klient" />
+            <End Role="Kolichistvo" EntitySet="Kolichistvo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Kolichistvo_Zanitie" Association="Self.FK_Kolichistvo_Zanitie">
+            <End Role="Zanitie" EntitySet="Zanitie" />
+            <End Role="Kolichistvo" EntitySet="Kolichistvo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Oplata_Aboniment" Association="Self.FK_Oplata_Aboniment">
+            <End Role="Aboniment" EntitySet="Aboniment" />
+            <End Role="Oplata" EntitySet="Oplata" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Oplata_SposobOplati" Association="Self.FK_Oplata_SposobOplati">
+            <End Role="SposobOplati" EntitySet="SposobOplati" />
+            <End Role="Oplata" EntitySet="Oplata" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Polizovateli_DanniePersonal1" Association="Self.FK_Polizovateli_DanniePersonal1">
+            <End Role="DanniePersonal" EntitySet="DanniePersonal" />
+            <End Role="Polizovateli" EntitySet="Polizovateli" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zanitie_Tipzanitia" Association="Self.FK_Zanitie_Tipzanitia">
+            <End Role="Tipzanitia" EntitySet="Tipzanitia" />
+            <End Role="Zanitie" EntitySet="Zanitie" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SportModels" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Aboniment">
+          <Key>
+            <PropertyRef Name="KodAboniment" />
+          </Key>
+          <Property Name="KodAboniment" Type="Int32" Nullable="false" />
+          <Property Name="Client" Type="Int32" Nullable="false" />
+          <Property Name="DataPokupki" Type="DateTime" Precision="0" />
+          <Property Name="DataOkonhanie" Type="DateTime" Precision="0" />
+          <Property Name="TipAboniment" Type="Int32" Nullable="false" />
+          <Property Name="Summa" Type="Int32" />
+          <Property Name="SposobOplati" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TipAbonimenta" Relationship="Self.FK_Aboniment_TipAbonimenta" FromRole="Aboniment" ToRole="TipAbonimenta" />
+          <NavigationProperty Name="Oplata" Relationship="Self.FK_Oplata_Aboniment" FromRole="Aboniment" ToRole="Oplata" />
+        </EntityType>
+        <EntityType Name="DanniePersonal">
+          <Key>
+            <PropertyRef Name="KodPersonal" />
+          </Key>
+          <Property Name="KodPersonal" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ImiPersonal" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FamiliaPersonala" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="OthestvoPersonala" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DataRojdenia" Type="DateTime" Precision="3" />
+          <Property Name="NomerTelefona" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DoljnostiPersonal" Type="Int32" Nullable="false" />
+          <Property Name="StajRaboti" Type="Int32" />
+          <Property Name="E_mail" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Doljnosti" Relationship="Self.FK_DanniePersonal_Doljnosti" FromRole="DanniePersonal" ToRole="Doljnosti" />
+          <NavigationProperty Name="InfoZanitia" Relationship="Self.FK_InfoZanitia_DanniePersonal" FromRole="DanniePersonal" ToRole="InfoZanitia" />
+          <NavigationProperty Name="Polizovateli" Relationship="Self.FK_Polizovateli_DanniePersonal1" FromRole="DanniePersonal" ToRole="Polizovateli" />
+        </EntityType>
+        <EntityType Name="Doljnosti">
+          <Key>
+            <PropertyRef Name="KodDolj" />
+          </Key>
+          <Property Name="KodDolj" Type="Int32" Nullable="false" />
+          <Property Name="NameDolj" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="DanniePersonal" Relationship="Self.FK_DanniePersonal_Doljnosti" FromRole="Doljnosti" ToRole="DanniePersonal" />
+        </EntityType>
+        <EntityType Name="InfoZanitia">
+          <Key>
+            <PropertyRef Name="KodZanitia" />
+          </Key>
+          <Property Name="KodZanitia" Type="Int32" Nullable="false" />
+          <Property Name="Zanitia" Type="Int32" Nullable="false" />
+          <Property Name="VremiZanitia" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="Trener" Type="Int32" Nullable="false" />
+          <Property Name="DataZanitia" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="DanniePersonal" Relationship="Self.FK_InfoZanitia_DanniePersonal" FromRole="InfoZanitia" ToRole="DanniePersonal" />
+          <NavigationProperty Name="Zanitie" Relationship="Self.FK_InfoZanitia_Zanitie" FromRole="InfoZanitia" ToRole="Zanitie" />
+        </EntityType>
+        <EntityType Name="Klient">
+          <Key>
+            <PropertyRef Name="KodKlienta" />
+          </Key>
+          <Property Name="KodKlienta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Aboniment" Type="Int32" Nullable="false" />
+          <Property Name="ImiKlient" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FamiliaKlient" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NomerTelefona" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DataRojdeniaKlient" Type="DateTime" Precision="3" />
+          <Property Name="SeriaPasport" Type="String" MaxLength="4" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="NomerPasport" Type="String" MaxLength="6" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="Kolichistvo" Relationship="Self.FK_Kolichistvo_Klient" FromRole="Klient" ToRole="Kolichistvo" />
+        </EntityType>
+        <EntityType Name="Kolichistvo">
+          <Key>
+            <PropertyRef Name="KodKolich" />
+          </Key>
+          <Property Name="KodKolich" Type="Int32" Nullable="false" />
+          <Property Name="KodZanitia" Type="Int32" Nullable="false" />
+          <Property Name="KodClienta" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Klient" Relationship="Self.FK_Kolichistvo_Klient" FromRole="Kolichistvo" ToRole="Klient" />
+          <NavigationProperty Name="Zanitie" Relationship="Self.FK_Kolichistvo_Zanitie" FromRole="Kolichistvo" ToRole="Zanitie" />
+        </EntityType>
+        <EntityType Name="Oplata">
+          <Key>
+            <PropertyRef Name="KodOplati" />
+          </Key>
+          <Property Name="KodOplati" Type="Int32" Nullable="false" />
+          <Property Name="Client" Type="Int32" Nullable="false" />
+          <Property Name="Aboniment" Type="Int32" Nullable="false" />
+          <Property Name="DataOplati" Type="DateTime" Precision="0" />
+          <Property Name="Summa" Type="Int32" />
+          <Property Name="SposobOplati" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Aboniment1" Relationship="Self.FK_Oplata_Aboniment" FromRole="Oplata" ToRole="Aboniment" />
+          <NavigationProperty Name="SposobOplati1" Relationship="Self.FK_Oplata_SposobOplati" FromRole="Oplata" ToRole="SposobOplati" />
+        </EntityType>
+        <EntityType Name="Polizovateli">
+          <Key>
+            <PropertyRef Name="KodPolizovatieli" />
+          </Key>
+          <Property Name="KodPolizovatieli" Type="Int32" Nullable="false" />
+          <Property Name="LoginPolizovateli" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ParoliPolizovateli" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="DanniePersonal" Relationship="Self.FK_Polizovateli_DanniePersonal1" FromRole="Polizovateli" ToRole="DanniePersonal" />
+        </EntityType>
+        <EntityType Name="SposobOplati">
+          <Key>
+            <PropertyRef Name="KodSposOplati" />
+          </Key>
+          <Property Name="KodSposOplati" Type="Int32" Nullable="false" />
+          <Property Name="Sposob" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Oplata" Relationship="Self.FK_Oplata_SposobOplati" FromRole="SposobOplati" ToRole="Oplata" />
+        </EntityType>
+        <EntityType Name="TipAbonimenta">
+          <Key>
+            <PropertyRef Name="KodAboniment" />
+          </Key>
+          <Property Name="KodAboniment" Type="Int32" Nullable="false" />
+          <Property Name="NameTip" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Aboniment" Relationship="Self.FK_Aboniment_TipAbonimenta" FromRole="TipAbonimenta" ToRole="Aboniment" />
+        </EntityType>
+        <EntityType Name="Tipzanitia">
+          <Key>
+            <PropertyRef Name="Kodnipzanitia" />
+          </Key>
+          <Property Name="Kodnipzanitia" Type="Int32" Nullable="false" />
+          <Property Name="Nametip" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Zanitie" Relationship="Self.FK_Zanitie_Tipzanitia" FromRole="Tipzanitia" ToRole="Zanitie" />
+        </EntityType>
+        <EntityType Name="Zanitie">
+          <Key>
+            <PropertyRef Name="KodZanitia" />
+          </Key>
+          <Property Name="KodZanitia" Type="Int32" Nullable="false" />
+          <Property Name="NazvanieZanitia" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="OpisanieZanitia" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TipZanitia" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="InfoZanitia" Relationship="Self.FK_InfoZanitia_Zanitie" FromRole="Zanitie" ToRole="InfoZanitia" />
+          <NavigationProperty Name="Kolichistvo" Relationship="Self.FK_Kolichistvo_Zanitie" FromRole="Zanitie" ToRole="Kolichistvo" />
+          <NavigationProperty Name="Tipzanitia1" Relationship="Self.FK_Zanitie_Tipzanitia" FromRole="Zanitie" ToRole="Tipzanitia" />
+        </EntityType>
+        <Association Name="FK_Aboniment_TipAbonimenta">
+          <End Role="TipAbonimenta" Type="Self.TipAbonimenta" Multiplicity="1" />
+          <End Role="Aboniment" Type="Self.Aboniment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipAbonimenta">
+              <PropertyRef Name="KodAboniment" />
+            </Principal>
+            <Dependent Role="Aboniment">
+              <PropertyRef Name="TipAboniment" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Oplata_Aboniment">
+          <End Role="Aboniment" Type="Self.Aboniment" Multiplicity="1" />
+          <End Role="Oplata" Type="Self.Oplata" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Aboniment">
+              <PropertyRef Name="KodAboniment" />
+            </Principal>
+            <Dependent Role="Oplata">
+              <PropertyRef Name="Aboniment" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DanniePersonal_Doljnosti">
+          <End Role="Doljnosti" Type="Self.Doljnosti" Multiplicity="1" />
+          <End Role="DanniePersonal" Type="Self.DanniePersonal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Doljnosti">
+              <PropertyRef Name="KodDolj" />
+            </Principal>
+            <Dependent Role="DanniePersonal">
+              <PropertyRef Name="DoljnostiPersonal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InfoZanitia_DanniePersonal">
+          <End Role="DanniePersonal" Type="Self.DanniePersonal" Multiplicity="1" />
+          <End Role="InfoZanitia" Type="Self.InfoZanitia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DanniePersonal">
+              <PropertyRef Name="KodPersonal" />
+            </Principal>
+            <Dependent Role="InfoZanitia">
+              <PropertyRef Name="Trener" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Polizovateli_DanniePersonal1">
+          <End Role="DanniePersonal" Type="Self.DanniePersonal" Multiplicity="1" />
+          <End Role="Polizovateli" Type="Self.Polizovateli" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="DanniePersonal">
+              <PropertyRef Name="KodPersonal" />
+            </Principal>
+            <Dependent Role="Polizovateli">
+              <PropertyRef Name="KodPolizovatieli" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InfoZanitia_Zanitie">
+          <End Role="Zanitie" Type="Self.Zanitie" Multiplicity="1" />
+          <End Role="InfoZanitia" Type="Self.InfoZanitia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zanitie">
+              <PropertyRef Name="KodZanitia" />
+            </Principal>
+            <Dependent Role="InfoZanitia">
+              <PropertyRef Name="Zanitia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Kolichistvo_Klient">
+          <End Role="Klient" Type="Self.Klient" Multiplicity="1" />
+          <End Role="Kolichistvo" Type="Self.Kolichistvo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Klient">
+              <PropertyRef Name="KodKlienta" />
+            </Principal>
+            <Dependent Role="Kolichistvo">
+              <PropertyRef Name="KodClienta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Kolichistvo_Zanitie">
+          <End Role="Zanitie" Type="Self.Zanitie" Multiplicity="1" />
+          <End Role="Kolichistvo" Type="Self.Kolichistvo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zanitie">
+              <PropertyRef Name="KodZanitia" />
+            </Principal>
+            <Dependent Role="Kolichistvo">
+              <PropertyRef Name="KodZanitia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Oplata_SposobOplati">
+          <End Role="SposobOplati" Type="Self.SposobOplati" Multiplicity="1" />
+          <End Role="Oplata" Type="Self.Oplata" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SposobOplati">
+              <PropertyRef Name="KodSposOplati" />
+            </Principal>
+            <Dependent Role="Oplata">
+              <PropertyRef Name="SposobOplati" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zanitie_Tipzanitia">
+          <End Role="Tipzanitia" Type="Self.Tipzanitia" Multiplicity="1" />
+          <End Role="Zanitie" Type="Self.Zanitie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tipzanitia">
+              <PropertyRef Name="Kodnipzanitia" />
+            </Principal>
+            <Dependent Role="Zanitie">
+              <PropertyRef Name="TipZanitia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SportEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Aboniment" EntityType="Self.Aboniment" />
+          <EntitySet Name="DanniePersonal" EntityType="Self.DanniePersonal" />
+          <EntitySet Name="Doljnosti" EntityType="Self.Doljnosti" />
+          <EntitySet Name="InfoZanitia" EntityType="Self.InfoZanitia" />
+          <EntitySet Name="Klient" EntityType="Self.Klient" />
+          <EntitySet Name="Kolichistvo" EntityType="Self.Kolichistvo" />
+          <EntitySet Name="Oplata" EntityType="Self.Oplata" />
+          <EntitySet Name="Polizovateli" EntityType="Self.Polizovateli" />
+          <EntitySet Name="SposobOplati" EntityType="Self.SposobOplati" />
+          <EntitySet Name="TipAbonimenta" EntityType="Self.TipAbonimenta" />
+          <EntitySet Name="Tipzanitia" EntityType="Self.Tipzanitia" />
+          <EntitySet Name="Zanitie" EntityType="Self.Zanitie" />
+          <AssociationSet Name="FK_Aboniment_TipAbonimenta" Association="Self.FK_Aboniment_TipAbonimenta">
+            <End Role="TipAbonimenta" EntitySet="TipAbonimenta" />
+            <End Role="Aboniment" EntitySet="Aboniment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Oplata_Aboniment" Association="Self.FK_Oplata_Aboniment">
+            <End Role="Aboniment" EntitySet="Aboniment" />
+            <End Role="Oplata" EntitySet="Oplata" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DanniePersonal_Doljnosti" Association="Self.FK_DanniePersonal_Doljnosti">
+            <End Role="Doljnosti" EntitySet="Doljnosti" />
+            <End Role="DanniePersonal" EntitySet="DanniePersonal" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InfoZanitia_DanniePersonal" Association="Self.FK_InfoZanitia_DanniePersonal">
+            <End Role="DanniePersonal" EntitySet="DanniePersonal" />
+            <End Role="InfoZanitia" EntitySet="InfoZanitia" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Polizovateli_DanniePersonal1" Association="Self.FK_Polizovateli_DanniePersonal1">
+            <End Role="DanniePersonal" EntitySet="DanniePersonal" />
+            <End Role="Polizovateli" EntitySet="Polizovateli" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InfoZanitia_Zanitie" Association="Self.FK_InfoZanitia_Zanitie">
+            <End Role="Zanitie" EntitySet="Zanitie" />
+            <End Role="InfoZanitia" EntitySet="InfoZanitia" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Kolichistvo_Klient" Association="Self.FK_Kolichistvo_Klient">
+            <End Role="Klient" EntitySet="Klient" />
+            <End Role="Kolichistvo" EntitySet="Kolichistvo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Kolichistvo_Zanitie" Association="Self.FK_Kolichistvo_Zanitie">
+            <End Role="Zanitie" EntitySet="Zanitie" />
+            <End Role="Kolichistvo" EntitySet="Kolichistvo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Oplata_SposobOplati" Association="Self.FK_Oplata_SposobOplati">
+            <End Role="SposobOplati" EntitySet="SposobOplati" />
+            <End Role="Oplata" EntitySet="Oplata" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zanitie_Tipzanitia" Association="Self.FK_Zanitie_Tipzanitia">
+            <End Role="Tipzanitia" EntitySet="Tipzanitia" />
+            <End Role="Zanitie" EntitySet="Zanitie" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище SportModelsContainer" CdmEntityContainer="SportEntities">
+          <EntitySetMapping Name="Aboniment">
+            <EntityTypeMapping TypeName="SportModels.Aboniment">
+              <MappingFragment StoreEntitySet="Aboniment">
+                <ScalarProperty Name="KodAboniment" ColumnName="KodAboniment" />
+                <ScalarProperty Name="Client" ColumnName="Client" />
+                <ScalarProperty Name="DataPokupki" ColumnName="DataPokupki" />
+                <ScalarProperty Name="DataOkonhanie" ColumnName="DataOkonhanie" />
+                <ScalarProperty Name="TipAboniment" ColumnName="TipAboniment" />
+                <ScalarProperty Name="Summa" ColumnName="Summa" />
+                <ScalarProperty Name="SposobOplati" ColumnName="SposobOplati" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DanniePersonal">
+            <EntityTypeMapping TypeName="SportModels.DanniePersonal">
+              <MappingFragment StoreEntitySet="DanniePersonal">
+                <ScalarProperty Name="KodPersonal" ColumnName="KodPersonal" />
+                <ScalarProperty Name="ImiPersonal" ColumnName="ImiPersonal" />
+                <ScalarProperty Name="FamiliaPersonala" ColumnName="FamiliaPersonala" />
+                <ScalarProperty Name="OthestvoPersonala" ColumnName="OthestvoPersonala" />
+                <ScalarProperty Name="DataRojdenia" ColumnName="DataRojdenia" />
+                <ScalarProperty Name="NomerTelefona" ColumnName="NomerTelefona" />
+                <ScalarProperty Name="DoljnostiPersonal" ColumnName="DoljnostiPersonal" />
+                <ScalarProperty Name="StajRaboti" ColumnName="StajRaboti" />
+                <ScalarProperty Name="E_mail" ColumnName="E-mail" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Doljnosti">
+            <EntityTypeMapping TypeName="SportModels.Doljnosti">
+              <MappingFragment StoreEntitySet="Doljnosti">
+                <ScalarProperty Name="KodDolj" ColumnName="KodDolj" />
+                <ScalarProperty Name="NameDolj" ColumnName="NameDolj" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InfoZanitia">
+            <EntityTypeMapping TypeName="SportModels.InfoZanitia">
+              <MappingFragment StoreEntitySet="InfoZanitia">
+                <ScalarProperty Name="KodZanitia" ColumnName="KodZanitia" />
+                <ScalarProperty Name="Zanitia" ColumnName="Zanitia" />
+                <ScalarProperty Name="VremiZanitia" ColumnName="VremiZanitia" />
+                <ScalarProperty Name="Trener" ColumnName="Trener" />
+                <ScalarProperty Name="DataZanitia" ColumnName="DataZanitia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Klient">
+            <EntityTypeMapping TypeName="SportModels.Klient">
+              <MappingFragment StoreEntitySet="Klient">
+                <ScalarProperty Name="KodKlienta" ColumnName="KodKlienta" />
+                <ScalarProperty Name="Aboniment" ColumnName="Aboniment" />
+                <ScalarProperty Name="ImiKlient" ColumnName="ImiKlient" />
+                <ScalarProperty Name="FamiliaKlient" ColumnName="FamiliaKlient" />
+                <ScalarProperty Name="NomerTelefona" ColumnName="NomerTelefona" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="DataRojdeniaKlient" ColumnName="DataRojdeniaKlient" />
+                <ScalarProperty Name="SeriaPasport" ColumnName="SeriaPasport" />
+                <ScalarProperty Name="NomerPasport" ColumnName="NomerPasport" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kolichistvo">
+            <EntityTypeMapping TypeName="SportModels.Kolichistvo">
+              <MappingFragment StoreEntitySet="Kolichistvo">
+                <ScalarProperty Name="KodKolich" ColumnName="KodKolich" />
+                <ScalarProperty Name="KodZanitia" ColumnName="KodZanitia" />
+                <ScalarProperty Name="KodClienta" ColumnName="KodClienta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Oplata">
+            <EntityTypeMapping TypeName="SportModels.Oplata">
+              <MappingFragment StoreEntitySet="Oplata">
+                <ScalarProperty Name="KodOplati" ColumnName="KodOplati" />
+                <ScalarProperty Name="Client" ColumnName="Client" />
+                <ScalarProperty Name="Aboniment" ColumnName="Aboniment" />
+                <ScalarProperty Name="DataOplati" ColumnName="DataOplati" />
+                <ScalarProperty Name="Summa" ColumnName="Summa" />
+                <ScalarProperty Name="SposobOplati" ColumnName="SposobOplati" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Polizovateli">
+            <EntityTypeMapping TypeName="SportModels.Polizovateli">
+              <MappingFragment StoreEntitySet="Polizovateli">
+                <ScalarProperty Name="KodPolizovatieli" ColumnName="KodPolizovatieli" />
+                <ScalarProperty Name="LoginPolizovateli" ColumnName="LoginPolizovateli" />
+                <ScalarProperty Name="ParoliPolizovateli" ColumnName="ParoliPolizovateli" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SposobOplati">
+            <EntityTypeMapping TypeName="SportModels.SposobOplati">
+              <MappingFragment StoreEntitySet="SposobOplati">
+                <ScalarProperty Name="KodSposOplati" ColumnName="KodSposOplati" />
+                <ScalarProperty Name="Sposob" ColumnName="Sposob" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipAbonimenta">
+            <EntityTypeMapping TypeName="SportModels.TipAbonimenta">
+              <MappingFragment StoreEntitySet="TipAbonimenta">
+                <ScalarProperty Name="KodAboniment" ColumnName="KodAboniment" />
+                <ScalarProperty Name="NameTip" ColumnName="NameTip" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tipzanitia">
+            <EntityTypeMapping TypeName="SportModels.Tipzanitia">
+              <MappingFragment StoreEntitySet="Tipzanitia">
+                <ScalarProperty Name="Kodnipzanitia" ColumnName="Kodnipzanitia" />
+                <ScalarProperty Name="Nametip" ColumnName="Nametip" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Zanitie">
+            <EntityTypeMapping TypeName="SportModels.Zanitie">
+              <MappingFragment StoreEntitySet="Zanitie">
+                <ScalarProperty Name="KodZanitia" ColumnName="KodZanitia" />
+                <ScalarProperty Name="NazvanieZanitia" ColumnName="NazvanieZanitia" />
+                <ScalarProperty Name="OpisanieZanitia" ColumnName="OpisanieZanitia" />
+                <ScalarProperty Name="TipZanitia" ColumnName="TipZanitia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

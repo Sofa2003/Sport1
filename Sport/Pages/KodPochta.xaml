@@ -1,0 +1,15 @@
+﻿<Page x:Class="Sport.Pages.KodPochta"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Sport.Pages"
+        mc:Ignorable="d"
+        Title="KodPochta" Height="450" Width="450">
+    <Grid>
+        <Label Content="Введите код из почты" HorizontalAlignment="Left" Margin="118,164,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txboxkodi" HorizontalAlignment="Left" Margin="106,204,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="215"/>
+        <Button x:Name="btnsverka" Content="Сверить код" HorizontalAlignment="Left" Margin="154,254,0,0" VerticalAlignment="Top" Click="btnsverka_Click"/>
+
+    </Grid>
+</Page>
