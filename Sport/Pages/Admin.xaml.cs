@@ -117,51 +117,53 @@ namespace Sport.Pages
         {
             NavigationService.Navigate(new SpisokZanitia());
         }
-        public class DaniePersonal
+        public class Danie
         {
-            public int KodPersonal { get; set; }
+            public int Kod { get; set; }
             public string Doljnosti { get; set; }
             public string ImiPersonal { get; set; }
             public string FamiliaPersonala { get; set; }
             public string OthestvoPersonala { get; set; }
             public string NomerTelefona { get; set; }
             public string E_mail { get; set; }
-            public string StajRaboti { get; set; }
         }
 
         private void btnexcel_Click(object sender, RoutedEventArgs e)
         {
             var context = Helper.GetContext();
-
-            var empl = context.DanniePersonal.Select(r => new DanniePersonal
+            //Извлечение из базы данных и преобразование в объекты Danie
+            var empl = Helper.GetContext().DanniePersonal.Select(r => new Danie
             {
-                KodPersonal = (int)r.KodPersonal,
+                Kod = (int)r.KodPersonal,
                 Doljnosti = context.Doljnosti.Where(p => p.KodDolj == r.DoljnostiPersonal).Select(p => p.NameDolj).FirstOrDefault(),
                 ImiPersonal = r.ImiPersonal,
                 FamiliaPersonala = r.FamiliaPersonala,
                 OthestvoPersonala = r.OthestvoPersonala,
                 NomerTelefona = r.NomerTelefona,
                 E_mail = r.E_mail,
-                StajRaboti = r.StajRaboti,
             }).ToList();
-
+            //Создание экземпляра, файла и листа
             Microsoft.Office.Interop.Excel.Application excelApp = new Microsoft.Office.Interop.Excel.Application();
-            Workbook excelWorkbook = excelApp.Workbooks.Open("C:\\Users\\user\\Desktop\\Sportsotrudnik.xlsx");
+            Workbook excelWorkbook = excelApp.Workbooks.Add(); 
             Worksheet excelWorksheet = excelWorkbook.Sheets[1];
-
-            int rowCount = excelWorksheet.UsedRange.Rows.Count;
-
-            for (int i = 0; i < empl.Lenght; i++)
+            //Заполнение заголовков
+            for (int i = 0; i < typeof(Danie).GetProperties().Length; i++)
             {
-                for (int j = 0; j < typeof(DanniePersonal).GetProperties().Length; j++)
+                excelWorksheet.Cells[1, i + 1] = typeof(Danie).GetProperties()[i].Name;
+            }
+           //Заполнение данных
+            for (int i = 0; i < empl.Count; i++)
+            {
+                for (int j = 0; j < typeof(Danie).GetProperties().Length; j++)
                 {
-                    excelWorksheet.Cells[rowCount + i + 1, j + 1] = typeof(DanniePersonal).GetProperties()[j].GetValue(empl[i]);
+                    excelWorksheet.Cells[i + 2, j + 1] = typeof(Danie).GetProperties()[j].GetValue(empl[i]);
                 }
             }
 
-            excelWorkbook.Save();
+            excelWorkbook.SaveAs("C:\\Users\\user\\Desktop\\Sportsotrudnik.xlsx");//Сохранения файла на рабочий стол
             excelWorkbook.Close();
             excelApp.Quit();
+            MessageBox.Show("Файл успешно создан и добавлен на рабочий стол!","Внимание",MessageBoxButton.OK);
         }
 
 

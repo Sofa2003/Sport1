@@ -34,6 +34,5 @@ namespace Sport.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<InfoZanitia> InfoZanitia { get; set; }
         public virtual Polizovateli Polizovateli { get; set; }
-        public string DoljnostiP { get; internal set; }
     }
 }

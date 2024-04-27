@@ -45,7 +45,7 @@
         <DatePicker x:Name="datapick" HorizontalAlignment="Left" Margin="78,131,0,0" VerticalAlignment="Top" Width="165" Height="30" Grid.Column="1"/>
         <Label x:Name="lbfamilia_Copy" Content="E-mail" HorizontalAlignment="Left" Margin="220,10,0,0" VerticalAlignment="Top" Grid.Column="1"/>
         <TextBox x:Name="txtboxemail" HorizontalAlignment="Left" Margin="314,19,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Column="1"/>
-        <Button x:Name="btnword" Content="Печать ворд" HorizontalAlignment="Left" Margin="400,377,0,0" VerticalAlignment="Top" Grid.Column="1" Click="btnword_Click"/>
+        <Button x:Name="btnword" Content="Печать ворд" HorizontalAlignment="Left" Margin="400,377,0,0" VerticalAlignment="Top" Grid.Column="1" />
 
     </Grid>
 </Page>
