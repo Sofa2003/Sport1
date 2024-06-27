@@ -11,13 +11,16 @@ namespace Registr.Model
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Polizovateli
     {
         public int KodPolizovatieli { get; set; }
         public string LoginPolizovateli { get; set; }
+        [Required(ErrorMessage = "Поле Логин не должно быть пустым")]
         public string ParoliPolizovateli { get; set; }
-    
+        [Required(ErrorMessage = "Поле Пароль не должно быть пустым")]
+
         public virtual DanniePersonal DanniePersonal { get; set; }
     }
 }

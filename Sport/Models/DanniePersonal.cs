@@ -11,7 +11,8 @@ namespace Sport.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class DanniePersonal
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,18 +22,26 @@ namespace Sport.Models
         }
     
         public int KodPersonal { get; set; }
+        [Required(ErrorMessage = "Поле Имя не должно быть пустым")]
         public string ImiPersonal { get; set; }
+        [Required(ErrorMessage = "Поле Фамилия не должно быть пустым")]
         public string FamiliaPersonala { get; set; }
         public string OthestvoPersonala { get; set; }
+        [Required(ErrorMessage = "Поле Дата рождения не должно быть пустым")]
         public Nullable<System.DateTime> DataRojdenia { get; set; }
+        [Required(ErrorMessage = "Поле Номер Телефона не должно быть пустым")]
+        [StringLength(20, MinimumLength = 1, ErrorMessage = "Поле Номер Телефона слишком длинное")]
         public string NomerTelefona { get; set; }
+        
         public int DoljnostiPersonal { get; set; }
         public Nullable<int> StajRaboti { get; set; }
         public string E_mail { get; set; }
-    
+        [Required(ErrorMessage = "Не выбрана должность")]
         public virtual Doljnosti Doljnosti { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+
         public virtual ICollection<InfoZanitia> InfoZanitia { get; set; }
         public virtual Polizovateli Polizovateli { get; set; }
+
     }
 }

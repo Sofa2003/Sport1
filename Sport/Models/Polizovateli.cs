@@ -11,10 +11,12 @@ namespace Sport.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Polizovateli
     {
         public int KodPolizovatieli { get; set; }
+        [Required(ErrorMessage = "Поле Логин не должно быть пустым")]
         public string LoginPolizovateli { get; set; }
         public string ParoliPolizovateli { get; set; }
     

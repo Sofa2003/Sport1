@@ -146,7 +146,7 @@ namespace Sport.Pages
                         {
                             MessageBox.Show("Пользователь с таким логином или паролем не существует", "Ошибка", MessageBoxButton.OK);
                             countUnsuccessfull++;
-                            GenerateCaptcha();
+                            GenerateCaptcha(5);
                         }
 
 
@@ -170,14 +170,14 @@ namespace Sport.Pages
                         {
                             MessageBox.Show("Капча введена неверно", "Ошибка", MessageBoxButton.OK);
                             countUnsuccessfull++;
-                            GenerateCaptcha();
+                            GenerateCaptcha(5);
                         }
                         //Блокировка ввода если каптча была 2 раза неправильной
                         else
                         {
                             MessageBox.Show("Капча введена неверно более двух раз", "Ошибка", MessageBoxButton.OK);
                             countUnsuccessfull++;
-                            GenerateCaptcha();
+                            GenerateCaptcha(5);
                             //Метод для блокировки кнопок ввода на 1 минуту
                             wait();
                         }
@@ -196,13 +196,13 @@ namespace Sport.Pages
 
         }
         //Метод генерации каптчи
-        private void GenerateCaptcha()
+        public void GenerateCaptcha( int num)
         {
             txtboxCaptcha.Visibility = Visibility.Visible;
             txtBlockCaptcha.Visibility = Visibility.Visible;
             const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
             Random random = new Random();
-            string captcha = new string(Enumerable.Repeat(chars, 6)
+            string captcha = new string(Enumerable.Repeat(chars, num)
               .Select(s => s[random.Next(s.Length)]).ToArray());
             txtBlockCaptcha.Text = captcha;
             txtBlockCaptcha.TextDecorations = TextDecorations.Strikethrough;

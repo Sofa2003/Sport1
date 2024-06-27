@@ -43,7 +43,7 @@
                                         <StackPanel x:Name="PanelEmp" Grid.Column="1" Margin="5">
                                             <TextBlock Text="{Binding NazvanieZanitia}" FontWeight="Bold" TextAlignment="Center"/>
                                             <TextBlock Text="{Binding OpisanieZanitia}" TextAlignment="Center"/>
-                                            <TextBlock  Text="{Binding TipzanitiaName}" TextAlignment="Center"/>
+                                            <TextBlock  Text="{Binding TipZanitia.Tipzanitia}" TextAlignment="Center"/>
 
                                         </StackPanel>
                                     </Grid>

@@ -8,7 +8,6 @@
       d:DesignHeight="450" d:DesignWidth="800"
       
       Title="Redactorxaml">
-
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="8*"/>
@@ -19,31 +18,32 @@
             <RowDefinition Height="49*"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Label x:Name="lbfamilia" Content="Фамилия" HorizontalAlignment="Left" Margin="26,7,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+
+        <Label x:Name="lbfamilia" Content="Фамилия" HorizontalAlignment="Left" Margin="26,7,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" />
         <Label x:Name="lbimi" Content="Имя" HorizontalAlignment="Left" Margin="26,47,0,0" VerticalAlignment="Top"/>
         <Label x:Name="lbotchestvo" Content="Отчество*" HorizontalAlignment="Left" Margin="26,81,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
         <Label x:Name="lbemail" Content="Номер телефона" HorizontalAlignment="Left" Margin="20,160,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="txboxfami" HorizontalAlignment="Left" Margin="76,16,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Column="1"/>
-        <TextBox x:Name="txtboximi" HorizontalAlignment="Left" Margin="76,56,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Column="1"/>
-        <TextBox x:Name="txboxotch" HorizontalAlignment="Left" Margin="76,96,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Column="1"/>
-        <TextBox x:Name="txboxtelefon" HorizontalAlignment="Left" Margin="76,169,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Column="1"/>
-        <Label x:Name="lbdolj" Content="Должность" HorizontalAlignment="Left" Margin="30,205,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
-        <ComboBox x:Name="combodolj" HorizontalAlignment="Left" Margin="76,204,0,0" VerticalAlignment="Top" Width="120" Grid.Column="1" />
+        <TextBox x:Name="txboxfami" HorizontalAlignment="Left" Margin="76,16,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Column="1" PreviewTextInput="txboxfami_PreviewTextInput_1"/>
+        <TextBox x:Name="txtboximi" HorizontalAlignment="Left" Margin="76,56,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Column="1" PreviewTextInput="txtboximi_PreviewTextInput" />
+        <TextBox x:Name="txboxotch" HorizontalAlignment="Left" Margin="76,96,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Column="1" />
+        <TextBox x:Name="txboxtelefon" HorizontalAlignment="Left" Margin="76,169,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Column="1" PreviewTextInput="txboxtelefon_PreviewTextInput"/>
+        <Label x:Name="lbdolj" Content="Должность" HorizontalAlignment="Left" Margin="30,205,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" />
+        <ComboBox x:Name="combodolj" HorizontalAlignment="Left" Margin="76,204,0,0" VerticalAlignment="Top" Width="120" Grid.Column="1"  />
         <Label x:Name="lbstaj" Content="Стаж работы*" HorizontalAlignment="Left" Margin="30,255,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
         <TextBox x:Name="tbstaj" HorizontalAlignment="Left" Margin="76,264,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Column="1"/>
         <Image x:Name="imageperso" HorizontalAlignment="Left" Height="140" Margin="18,34,0,0" VerticalAlignment="Top" Width="140" Source="/Pages/hh0TY2S5Cxs.jpg" Grid.Column="2"/>
         <Label x:Name="lblogin" Content="Логин" HorizontalAlignment="Left" Margin="38,290,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="tblogin" HorizontalAlignment="Left" Margin="76,302,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Column="1"/>
+        <TextBox x:Name="tblogin" HorizontalAlignment="Left" Margin="76,302,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Column="1" />
         <Label x:Name="lbparoli" Content="Пароль" HorizontalAlignment="Left" Margin="30,330,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="tbparoli" HorizontalAlignment="Left" Margin="76,339,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Column="1"/>
+        <TextBox x:Name="tbparoli" HorizontalAlignment="Left" Margin="76,339,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Column="1" />
         <Button x:Name="btnphoto" Content="Добавить фото" HorizontalAlignment="Left" Margin="27,185,0,0" VerticalAlignment="Top" Grid.Column="2"/>
         <Button x:Name="btnsohri" Content="Сохранить" HorizontalAlignment="Left" Margin="40,377,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.503,0.526" Click="btnsohri_Click" Grid.ColumnSpan="2"/>
         <Button x:Name="btnochis" Content="Очистить" HorizontalAlignment="Left" Margin="110,377,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.503,0.526" Click="btnochis_Click" Grid.Column="1"/>
         <Label x:Name="lbtetx" Content="* не обязательное поле" HorizontalAlignment="Left" Margin="10,416,0,0" VerticalAlignment="Top" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
         <Button x:Name="btredactor" Content="Редактировать" HorizontalAlignment="Left" Margin="260,377,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.503,0.526" Click="btredactor_Click" Grid.Column="1"/>
-        <Label x:Name="lbdata" Content="Дата рождения*" HorizontalAlignment="Left" Margin="25,126,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+        <Label x:Name="lbdata" Content="Дата рождения" HorizontalAlignment="Left" Margin="25,126,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
         <DatePicker x:Name="datapick" HorizontalAlignment="Left" Margin="78,131,0,0" VerticalAlignment="Top" Width="165" Height="30" Grid.Column="1"/>
-        <Label x:Name="lbfamilia_Copy" Content="E-mail" HorizontalAlignment="Left" Margin="220,10,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+        <Label x:Name="lbfamilia_Copy" Content="E-mail*" HorizontalAlignment="Left" Margin="220,10,0,0" VerticalAlignment="Top" Grid.Column="1"/>
         <TextBox x:Name="txtboxemail" HorizontalAlignment="Left" Margin="314,19,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Column="1"/>
         <Button x:Name="btnword" Content="Печать ворд" HorizontalAlignment="Left" Margin="400,377,0,0" VerticalAlignment="Top" Grid.Column="1" />
 
